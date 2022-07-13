@@ -1,4 +1,4 @@
-module github.com/serhijko/blueprint
+module github.com/serhijko/go-project-blueprint
 
 go 1.18
 
