@@ -20,3 +20,6 @@ bin
 .container-*
 
 go.sum
+
+# VSCode project config files folder
+.vscode/
