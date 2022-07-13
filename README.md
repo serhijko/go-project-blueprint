@@ -48,9 +48,9 @@ docker run docker.pkg.github.com/serhijko/go-project-blueprint/blueprint:latest
     - Set `DOCKER_PASSWORD` to Your GitHub Registry token
 
 ### Setup CodeClimate
-    - Go to <https://codeclimate.com/github/repos/new>
-    - Add Repository
-    - Go to Test Coverage Tab
-    - Copy Test Reporter ID
-    - Go to travis and Open Settings for Your Repository
-    - Add Environment Variable: name: `CC_TEST_REPORTER_ID`, value: _Copied from CodeClimate_
+- Go to <https://codeclimate.com/github/repos/new>
+- Add Repository
+- Go to Test Coverage Tab
+- Copy Test Reporter ID
+- Go to travis and Open Settings for Your Repository
+- Add Environment Variable: name: `CC_TEST_REPORTER_ID`, value: _Copied from CodeClimate_
