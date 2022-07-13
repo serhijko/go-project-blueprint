@@ -32,7 +32,8 @@ docker run docker.pkg.github.com/serhijko/go-project-blueprint/blueprint:latest
     - Click _Plus_ Sign in Upper Right Corner
     - _Analize New Project_
     - Click _GitHub app configuration_ link
-    - Configure Repository and Save
+    - Configure SonarCloud
+    - Select Repository and Save
     - Go Back to Analyze Project
     - Tick Newly Added Repository
     - Click Set Up
@@ -45,3 +46,11 @@ docker run docker.pkg.github.com/serhijko/go-project-blueprint/blueprint:latest
 - On Travis CI:
     - Set `DOCKER_USERNAME`
     - Set `DOCKER_PASSWORD` to Your GitHub Registry token
+
+### Setup CodeClimate
+    - Go to <https://codeclimate.com/github/repos/new>
+    - Add Repository
+    - Go to Test Coverage Tab
+    - Copy Test Reporter ID
+    - Go to travis and Open Settings for Your Repository
+    - Add Environment Variable: name: `CC_TEST_REPORTER_ID`, value: _Copied from CodeClimate_
