@@ -19,7 +19,7 @@ matrix:
         sonarCloud:
           organization: serhijko-github
           token:
-            secure: "tYsUxue9kLZWb+Y8kwU28j2sa0pq20z2ZvZrbKCN7Sw0WGtODQLaK9tZ94u1Sy02qL5QcabukbENmbvfouzXf4EfaKjDmYH9+Ja22X26MfTLVpaCDTQEGmNyREOFCHpjNXPgDMv1C70By5U+aPWSYF/lehB5rFijwCf7rmTFRNUDeotCTCuWb2dIkrX2i6raVu34SvqqGxKQmmH+NPLe7uKO/wXqH+cWQH1P9oJYeVksNGruw4M0MznUeQHeJQYpTLooxhEEzYiBbkerWGDMwBdZdPQwVrO2b8FEDRw/GWTFoL+FkdVMl4n4lrbO/cQLbPMTGcfupNCuVHh1n8cGp8spMkrfQGtKqvDRuz2tBs0n1PWXCRS6pgZQw/ClLPgi/vVryVRwOabIHSQQLRVhcdp8pkYdyX3aH1EdlIHiJLT6sacS0vJPqZMF/HNsPEoHe4YdiYvx/tcYMU63KQVZzgF4HfQMWy69s1d0RZUqd+wrtHU1DHwnkq1TSe+8nMlbvbmMsm6FVqGistrnVjx4C9TjDWQcjprYU40zCvc1uvoSPimVcaD8ITalCDHlEfoV7wZuisV8+gJzOh9pDZ/joohW7/P3zklGgI2sH7qt62GE4o5UyRArzJC7eIj7Oxx6GdbeEqw09M4rCfR1g5tHWIqVHz5CajvkXkPqrRGu2oI="
+            secure: "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"
       before_script:
         - ./reports.sh  # Creates directories and files for reports
         - export GO111MODULE=on
