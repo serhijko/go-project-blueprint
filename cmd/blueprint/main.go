@@ -60,7 +60,7 @@ func main() {
 
 	defer config.Config.DB.Close()
 
-	fmt.Println(fmt.Sprintf("Successfully connected to :%v", config.Config.DSN))
+	fmt.Println("Successfully connected to database")
 
-	r.RunTLS(fmt.Sprintf(":%v", config.Config.ServerPort), config.Config.CertFile, config.Config.KeyFile)
+	r.Run(fmt.Sprintf(":%v", config.Config.ServerPort))
 }
