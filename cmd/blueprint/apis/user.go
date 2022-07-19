@@ -11,6 +11,7 @@ import (
 )
 
 // GetUser is function for endpoint /api/vi/users to get User by ID
+// It uses UserService to retrieve data, which in turn queries database using User DAO
 func GetUser(c *gin.Context) {
 	s := services.NewUserService(daos.NewUserDAO())   // Create service
 	id, _ := strconv.ParseUint(c.Param("id"), 10, 32) // Parse ID from URL
