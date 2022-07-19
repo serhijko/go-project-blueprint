@@ -15,6 +15,10 @@ const docTemplate = `{
             "name": "API Support",
             "email": "serhijko77@gmail.com"
         },
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/serhijko/go-project-blueprint/blob/main/LICENSE"
+        },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
@@ -29,9 +33,9 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "user ID",
+                        "description": "User ID",
                         "name": "id",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     }
                 ],

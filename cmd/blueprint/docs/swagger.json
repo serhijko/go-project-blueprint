@@ -8,6 +8,10 @@
             "name": "API Support",
             "email": "serhijko77@gmail.com"
         },
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/serhijko/go-project-blueprint/blob/main/LICENSE"
+        },
         "version": "1.0"
     },
     "basePath": "/api/v1",
@@ -21,9 +25,9 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "user ID",
+                        "description": "User ID",
                         "name": "id",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     }
                 ],

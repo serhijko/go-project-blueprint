@@ -10,7 +10,7 @@ import (
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/config"
 
 	swaggerFiles "github.com/swaggo/files"
-	"github.com/swaggo/gin-swagger"
+	ginSwagger "github.com/swaggo/gin-swagger"
 
 	_ "github.com/serhijko/go-project-blueprint/cmd/blueprint/docs"
 )
@@ -22,6 +22,9 @@ import (
 
 // @contact.name API Support
 // @contact.email serhijko77@gmail.com
+
+// @license.name MIT
+// @license.url https://github.com/serhijko/go-project-blueprint/blob/main/LICENSE
 
 // @BasePath /api/v1
 func main() {

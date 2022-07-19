@@ -24,6 +24,9 @@ info:
     email: serhijko77@gmail.com
     name: API Support
   description: Swagger API for Golang Project Blueprint
+  license:
+    name: MIT
+    url: https://github.com/serhijko/go-project-blueprint/blob/main/LICENSE
   termsOfService: http://swagger.io/terms/
   title: Blueprint Swagger API
   version: "1.0"
@@ -31,8 +34,8 @@ paths:
   /users/{id}:
     get:
       parameters:
-      - description: user ID
-        in: query
+      - description: User ID
+        in: path
         name: id
         required: true
         type: integer
