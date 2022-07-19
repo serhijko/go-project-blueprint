@@ -16,6 +16,7 @@ import (
 // @Param id path integer true "User ID"
 // @Success 200 {object} models.User
 // @Router /users/{id} [get]
+// @Security ApiKeyAuth
 func GetUser(c *gin.Context) {
 	s := services.NewUserService(daos.NewUserDAO())   // Create service
 	id, _ := strconv.ParseUint(c.Param("id"), 10, 32) // Parse ID from URL

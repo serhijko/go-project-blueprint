@@ -1,13 +1,16 @@
 package main
 
 import (
+	"errors"
 	"fmt"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/apis"
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/config"
+	"github.com/serhijko/go-project-blueprint/cmd/blueprint/httputil"
 
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -27,6 +30,10 @@ import (
 // @license.url https://github.com/serhijko/go-project-blueprint/blob/main/LICENSE
 
 // @BasePath /api/v1
+
+// @securityDefinitions.apiKey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	// load application configurations
 	if err := config.LoadConfig("../../config"); err != nil {
@@ -48,6 +55,7 @@ func main() {
 
 	v1 := r.Group("/api/v1")
 	{
+		v1.Use(auth())
 		v1.GET("/users/:id", apis.GetUser)
 	}
 
@@ -63,4 +71,19 @@ func main() {
 	fmt.Println("Successfully connected to database")
 
 	r.Run(fmt.Sprintf(":%v", config.Config.ServerPort))
+}
+
+func auth() gin.HandlerFunc { // Middleware function
+	return func(ctx *gin.Context) {
+		authHeader := ctx.GetHeader("Authorization") // Retrieve the header
+		if len(authHeader) == 0 {                    // Check if it's set
+			httputil.NewError(ctx, http.StatusUnauthorized, errors.New("Authorization is required Header"))
+			ctx.Abort()
+		}
+		if authHeader != config.Config.ApiKey { // Check if the API Key is correct
+			httputil.NewError(ctx, http.StatusUnauthorized, fmt.Errorf("this user isn't authorized to this operation: api_key=%s", authHeader))
+			ctx.Abort()
+		}
+		ctx.Next()
+	}
 }
