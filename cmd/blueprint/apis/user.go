@@ -10,8 +10,12 @@ import (
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/services"
 )
 
-// GetUser is function for endpoint /api/vi/users to get User by ID
-// It uses UserService to retrieve data, which in turn queries database using User DAO
+// GetUser godoc
+// @Summary Retrieves user based on given ID
+// @Produce json
+// @Param id query integer true "user ID"
+// @Success 200 {object} models.User
+// @Router /users/{id} [get]
 func GetUser(c *gin.Context) {
 	s := services.NewUserService(daos.NewUserDAO())   // Create service
 	id, _ := strconv.ParseUint(c.Param("id"), 10, 32) // Parse ID from URL

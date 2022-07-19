@@ -8,8 +8,22 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/apis"
 	"github.com/serhijko/go-project-blueprint/cmd/blueprint/config"
+
+	swaggerFiles "github.com/swaggo/files"
+	"github.com/swaggo/gin-swagger"
+
+	_ "github.com/serhijko/go-project-blueprint/cmd/blueprint/docs"
 )
 
+// @title Blueprint Swagger API
+// @version 1.0
+// @description Swagger API for Golang Project Blueprint
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.email serhijko77@gmail.com
+
+// @BasePath /api/v1
 func main() {
 	// load application configurations
 	if err := config.LoadConfig("../../config"); err != nil {
@@ -23,6 +37,8 @@ func main() {
 	// Logger middleware will write the logs to gin.DefaultWriter even if you set with GIN_MODE=release.
 	// By default gin.DefaultWriter = os.Stdout
 	r.Use(gin.Logger())
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Recovery middleware recovers from any panics and writes a 500 if there was one.
 	r.Use(gin.Recovery())
